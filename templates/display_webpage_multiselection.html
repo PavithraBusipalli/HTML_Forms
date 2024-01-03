@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple webpage selection</title>
+</head>
+<body>
+    <center>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="na">Topic Name</label>
+            <select id="na" name="na" multiple>
+                {% for w in webpage %}
+                    <option value="{{w.pk}}">{{w.name}}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <input type="submit">
+        </form>
+    </center>
+</body>
+</html>
